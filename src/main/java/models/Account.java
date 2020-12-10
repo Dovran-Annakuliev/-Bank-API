@@ -3,21 +3,21 @@ package models;
 import java.util.Objects;
 
 public class Account {
-    private long account_number;
+    private Long account_number;
     private float balance;
     private Client client;
 
-    public Account(int account_number, float balance, Client client) {
+    public Account(Long account_number, float balance, Client client) {
         this.account_number = account_number;
         this.balance = balance;
         this.client = client;
     }
 
-    public long getAccount_number() {
+    public Long getAccount_number() {
         return account_number;
     }
 
-    public void setAccount_number(int account_number) {
+    public void setAccount_number(Long account_number) {
         this.account_number = account_number;
     }
 
@@ -42,7 +42,7 @@ public class Account {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
         Account account = (Account) o;
-        return getAccount_number() == account.getAccount_number() &&
+        return getAccount_number().equals(account.getAccount_number()) &&
                 Float.compare(account.getBalance(), getBalance()) == 0 &&
                 getClient().equals(account.getClient());
     }

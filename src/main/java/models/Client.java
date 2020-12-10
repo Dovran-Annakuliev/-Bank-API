@@ -3,19 +3,19 @@ package models;
 import java.util.Objects;
 
 public class Client {
-    private long id;
+    private Long id;
     private String name;
 
-    public Client(int id, String name) {
+    public Client(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -32,7 +32,7 @@ public class Client {
         if (this == o) return true;
         if (!(o instanceof Client)) return false;
         Client client = (Client) o;
-        return getId() == client.getId() &&
+        return getId().equals(client.getId()) &&
                 getName().equals(client.getName());
     }
 

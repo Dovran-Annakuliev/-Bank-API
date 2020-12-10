@@ -3,11 +3,11 @@ package models;
 import java.util.Objects;
 
 public class Card {
-    private long card_number;
+    private Long card_number;
     private Client client;
     private Account account;
 
-    public Card(int card_number, Client client, Account account) {
+    public Card(Long card_number, Client client, Account account) {
         this.card_number = card_number;
         this.client = client;
         this.account = account;
@@ -17,7 +17,7 @@ public class Card {
         return card_number;
     }
 
-    public void setCard_number(int card_number) {
+    public void setCard_number(Long card_number) {
         this.card_number = card_number;
     }
 
