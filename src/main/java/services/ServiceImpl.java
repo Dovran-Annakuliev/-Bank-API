@@ -7,19 +7,23 @@ import models.Card;
 import java.util.List;
 
 public class ServiceImpl implements Service {
-    public void createNewCard(Card card) {
-        CardDAO cardDAO = new CardDAOImpl();
-        cardDAO.save(card);
+
+    @Override
+    public void createNewCard(Object o) {
+
     }
 
+    @Override
     public List getAllCards(Object o) {
         return null;
     }
 
+    @Override
     public void deposit(Object o) {
 
     }
 
+    @Override
     public Object getBalance() {
         return null;
     }

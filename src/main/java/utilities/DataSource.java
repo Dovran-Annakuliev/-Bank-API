@@ -13,7 +13,7 @@ public class DataSource {
     static {
         try {
             Properties properties = new Properties();
-            properties.load(dataSource.getClass().getResourceAsStream("/db.properties"));
+            properties.load(DataSource.class.getResourceAsStream("/db.properties"));
             config.setJdbcUrl(properties.getProperty("db.url"));
             config.setUsername(properties.getProperty("db.user"));
             config.setPassword(properties.getProperty("db.password"));
