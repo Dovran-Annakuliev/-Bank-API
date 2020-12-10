@@ -3,61 +3,73 @@ package models;
 import java.util.Objects;
 
 public class Card {
-    private Long card_number;
-    private Client client;
-    private Account account;
+    private Long cardId;
+    private Long accountId;
+    private Long clientId;
+    private String cardNumber;
 
-    public Card(Long card_number, Client client, Account account) {
-        this.card_number = card_number;
-        this.client = client;
-        this.account = account;
+    public Card(Long cardId, Long accountId, Long clientId, String cardNumber) {
+        this.cardId = cardId;
+        this.accountId = accountId;
+        this.clientId = clientId;
+        this.cardNumber = cardNumber;
     }
 
-    public long getCard_number() {
-        return card_number;
+    public Long getCardId() {
+        return cardId;
     }
 
-    public void setCard_number(Long card_number) {
-        this.card_number = card_number;
+    public void setCardId(Long cardId) {
+        this.cardId = cardId;
     }
 
-    public Client getClient() {
-        return client;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 
-    public Account getAccount() {
-        return account;
+    public Long getClientId() {
+        return clientId;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Card)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Card card = (Card) o;
-        return getCard_number() == card.getCard_number() &&
-                getClient().equals(card.getClient()) &&
-                getAccount().equals(card.getAccount());
+        return cardId.equals(card.cardId) &&
+                accountId.equals(card.accountId) &&
+                clientId.equals(card.clientId) &&
+                cardNumber.equals(card.cardNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCard_number(), getClient(), getAccount());
+        return Objects.hash(cardId, accountId, clientId, cardNumber);
     }
 
     @Override
     public String toString() {
-        return "models.Card{" +
-                "card_number=" + card_number +
-                ", client=" + client +
-                ", account=" + account +
+        return "Card{" +
+                "card_id=" + cardId +
+                ", account_id=" + accountId +
+                ", client_id=" + clientId +
+                ", card_number='" + cardNumber + '\'' +
                 '}';
     }
 }
