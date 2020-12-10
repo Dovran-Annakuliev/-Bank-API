@@ -48,7 +48,8 @@ public class ClientDAOImpl implements ClientDAO {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-        return clients;    }
+        return clients;
+    }
 
     @Override
     public void save(Client client) {

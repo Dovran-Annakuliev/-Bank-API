@@ -67,6 +67,6 @@ class ClientDAOImplTest {
         Client client = new Client(1L, "test");
         clientDAO.save(client);
         clientDAO.delete(1L);
-        assertEquals(null, clientDAO.findById(1L));
+        assertEquals(0, clientDAO.findAll().size());
     }
 }

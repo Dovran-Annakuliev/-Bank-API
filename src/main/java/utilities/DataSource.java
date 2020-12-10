@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class DataSource {
-    private static HikariConfig config = new HikariConfig();
     private static HikariDataSource dataSource;
 
     static {
         try {
+            HikariConfig config = new HikariConfig();
             Properties properties = new Properties();
             properties.load(DataSource.class.getResourceAsStream("/db.properties"));
             config.setJdbcUrl(properties.getProperty("db.url"));
