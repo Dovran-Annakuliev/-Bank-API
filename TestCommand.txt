@@ -1,2 +1,5 @@
 curl -k -H "Content-Type: application/json" -X POST http://localhost:8001/test -d "{"""Operation""":"""CreateNewCard""", """Account_id""":"""1""", """Client_id""":"""1""", """Account_number""":"""1""", """Balance""":"""1"""}"
+curl -k -H "Content-Type: application/json" -X POST http://localhost:8001/test -d "{"""Operation""":"""GetAllCards""", """Account_id""":"""1""", """Client_id""":"""1""", """Account_number""":"""1""", """Balance""":"""1"""}"
+curl -k -H "Content-Type: application/json" -X POST http://localhost:8001/test -d "{"""Operation""":"""Deposit""", """Account_id""":"""1""", """Client_id""":"""1""", """Account_number""":"""1""", """Balance""":"""1""", """Deposit""":"""1"""}"
+curl -k -H "Content-Type: application/json" -X POST http://localhost:8001/test -d "{"""Operation""":"""GetBalance""", """Account_id""":"""1""", """Client_id""":"""1""", """Account_number""":"""1""", """Balance""":"""1"""}"
 

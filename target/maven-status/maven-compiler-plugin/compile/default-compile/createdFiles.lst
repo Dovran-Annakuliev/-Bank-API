@@ -1,6 +1,7 @@
 services\Service.class
 models\Card.class
 app\App.class
+handlers\HandlerTest.class
 dao\ClientDAOImpl.class
 dao\CardDAO.class
 services\ServiceImpl.class

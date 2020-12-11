@@ -2,9 +2,11 @@ package handlers;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import dao.*;
 import models.Account;
 import models.Card;
 
+import models.Client;
 import org.json.JSONObject;
 import services.ServiceImpl;
 
@@ -17,6 +19,15 @@ import java.util.Scanner;
 
 public class HandlerTest implements HttpHandler {
     public static ServiceImpl service = new ServiceImpl();
+    public static ClientDAO clientDAO = new ClientDAOImpl();
+    public static AccountDAO accountDAO = new AccountDAOImpl();
+    public static CardDAO cardDAO = new CardDAOImpl();
+
+    static {
+        clientDAO.save(new Client(1L, "test1"));
+        accountDAO.save(new Account(1L, 1L, "1", 1));
+        cardDAO.save(new Card(1L, 1L, 1L, "1"));
+    }
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {

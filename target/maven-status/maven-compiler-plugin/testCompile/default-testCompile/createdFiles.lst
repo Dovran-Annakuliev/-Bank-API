@@ -1,0 +1,4 @@
+dao\AccountDAOImplTest.class
+services\ServiceImplTest.class
+dao\ClientDAOImplTest.class
+dao\CardDAOImplTest.class
