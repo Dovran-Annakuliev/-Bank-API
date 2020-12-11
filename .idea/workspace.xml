@@ -32,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -59,6 +59,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -78,17 +79,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.ServiceImplTest">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank_API" />
       <extension name="coverage">
@@ -186,7 +176,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607604740557</updated>
-      <workItem from="1607604741584" duration="29015000" />
+      <workItem from="1607604741584" duration="31980000" />
+      <workItem from="1607644230268" duration="2046000" />
     </task>
     <servers />
   </component>
@@ -203,6 +194,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="349" y="356" key="#SQL_Dialects" timestamp="1607605966592">
@@ -229,22 +221,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607614765958" />
-    <state width="1877" height="306" key="GridCell.Tab.0.bottom" timestamp="1607636779848">
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom" timestamp="1607638004044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607636779848" />
-    <state width="1877" height="306" key="GridCell.Tab.0.center" timestamp="1607636779848">
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607638004044" />
+    <state width="1877" height="306" key="GridCell.Tab.0.center" timestamp="1607638004044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607636779848" />
-    <state width="1877" height="306" key="GridCell.Tab.0.left" timestamp="1607636779848">
+    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607638004044" />
+    <state width="1877" height="306" key="GridCell.Tab.0.left" timestamp="1607638004044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607636779848" />
-    <state width="1877" height="306" key="GridCell.Tab.0.right" timestamp="1607636779848">
+    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607638004044" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right" timestamp="1607638004044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607636779848" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607638004044" />
     <state width="1877" height="340" key="GridCell.Tab.1.bottom" timestamp="1607624248012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
