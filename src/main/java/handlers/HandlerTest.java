@@ -27,6 +27,10 @@ public class HandlerTest implements HttpHandler {
         clientDAO.save(new Client(1L, "test1"));
         accountDAO.save(new Account(1L, 1L, "1", 1));
         cardDAO.save(new Card(1L, 1L, 1L, "1"));
+        System.out.println(clientDAO.findById(1L).toString());
+        System.out.println(accountDAO.findById(1L).toString());
+        System.out.println(cardDAO.findById(1L).toString());
+        System.out.println("");
     }
 
     @Override
@@ -34,48 +38,67 @@ public class HandlerTest implements HttpHandler {
         JSONObject jsonObject = new JSONObject(IoToString(exchange.getRequestBody()));
         System.out.println(jsonObject.toString());
         String operation = jsonObject.getString("Operation");
-        System.out.println("operation = " + operation);
-        String responce = null;
+        List<String> responce = null;
 
-        System.out.println("1");
-
-        if (operation.equals("CreateNewCard")) {
-            System.out.println("if");
+        if (operation.equals("CreateNewCard"))
             responce = createNewCard(jsonObject);
-        }
         else if (operation.equals("GetAllCards"))
             responce = getAllCards(jsonObject);
         else if (operation.equals("Deposit"))
             responce = deposit(jsonObject);
         else if (operation.equals("GetBalance"))
             responce = getBalance(jsonObject);
-        System.out.println("3");
 
         response(exchange, responce);
     }
 
-    private String createNewCard(JSONObject jsonObject){
+    private List<String> createNewCard(JSONObject jsonObject){
         Long accountId = Long.parseLong(jsonObject.getString("Account_id"));
         Long clientId = Long.parseLong(jsonObject.getString("Client_id"));
         String accountNumber = jsonObject.getString("Account_number");
         float balance = Float.parseFloat(jsonObject.getString("Balance"));
 
         service.createNewCard(new Account(accountId, clientId, accountNumber, balance));
-        return "Done!";
+        List<Card> list;
+        List<String> stringList = new LinkedList<>();
+        list = cardDAO.findAllById(accountId);
+        for (Card c : list)
+            stringList.add(c.toString());
+
+        System.out.println("responce:");
+        for (String s : stringList)
+            System.out.println(s);
+
+        return stringList;
+//        return "Done!";
     }
 
-    private String getAllCards(JSONObject jsonObject){
+    private List<String> getAllCards(JSONObject jsonObject){
         Long accountId = jsonObject.getLong("Account_id");
         Long clientId = jsonObject.getLong("Client_id");
         String accountNumber = jsonObject.getString("Account_number");
         float balance = jsonObject.getFloat("Balance");
 
-        List<Card> list = new LinkedList<>();
-        list = service.getAllCards(new Account(accountId, clientId, accountNumber, balance));
-        return list.toString();
+        System.out.println("1");
+        List<Card> list;
+        list = service.getAllCards(accountDAO.findById(accountId));
+
+        System.out.println("sizeList = " + list.size());
+
+        List<String> stringList = new LinkedList<>();
+        for (Card c : list) {
+            System.out.println(c.toString());
+            stringList.add(c.toString());
+        }
+
+        System.out.println("responce:");
+        for (String s : stringList)
+            System.out.println(s);
+
+        return stringList;
     }
 
-    private String deposit(JSONObject jsonObject){
+    private List<String> deposit(JSONObject jsonObject){
         Long accountId = jsonObject.getLong("Account_id");
         Long clientId = jsonObject.getLong("Client_id");
         String accountNumber = jsonObject.getString("Account_number");
@@ -83,25 +106,38 @@ public class HandlerTest implements HttpHandler {
         float deposit = jsonObject.getFloat("Deposit");
 
         service.deposit(new Account(accountId, clientId, accountNumber, balance), deposit);
-        return "Done!";
+        List<String> stringList = new LinkedList<>();
+        stringList.add("" + accountDAO.findById(accountId).getBalance());
+
+        System.out.println("responce:");
+        for (String s : stringList)
+            System.out.println(s);
+
+        return stringList;
     }
 
-    private String getBalance(JSONObject jsonObject){
+    private List<String> getBalance(JSONObject jsonObject){
         Long accountId = jsonObject.getLong("Account_id");
         Long clientId = jsonObject.getLong("Client_id");
         String accountNumber = jsonObject.getString("Account_number");
         float balance = jsonObject.getFloat("Balance");
 
-        Float bal = service.getBalance(new Account(accountId, clientId, accountNumber, balance));
-        return bal.toString();
+        List<String> stringList = new LinkedList<>();
+        stringList.add("" + service.getBalance(new Account(accountId, clientId, accountNumber, balance)));
+
+        System.out.println("responce:");
+        for (String s : stringList)
+            System.out.println(s);
+
+        return stringList;
     }
 
-    private void response(HttpExchange exchange, String response) throws IOException {
-        System.out.println("test");
-
-        exchange.sendResponseHeaders(200, response.length());
+    private void response(HttpExchange exchange, List<String> response) throws IOException {
+        System.out.println(response);
+        exchange.sendResponseHeaders(200, response.size());
         OutputStream os = exchange.getResponseBody();
-        os.write(response.getBytes());
+        for (String s : response)
+            os.write(s.getBytes());
         os.close();
     }
 

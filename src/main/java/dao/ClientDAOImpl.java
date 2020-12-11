@@ -19,19 +19,20 @@ public class ClientDAOImpl implements ClientDAO {
 
     @Override
     public Client findById(Long id) {
+        Client client = null;
         try (Connection connection = DataSource.getConnection(); PreparedStatement statement = connection.prepareStatement(SQL_FIND_BY_ID)){
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()){
                 if (resultSet.next()) {
                     Long clientId = resultSet.getLong("Client_id");
                     String name = resultSet.getString("Name");
-                    return new Client(clientId, name);
+                    client =  new Client(clientId, name);
                 }
             }
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-        return null;
+        return client;
     }
 
     @Override

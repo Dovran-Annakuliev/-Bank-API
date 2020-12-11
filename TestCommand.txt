@@ -3,3 +3,6 @@ curl -k -H "Content-Type: application/json" -X POST http://localhost:8001/test -
 curl -k -H "Content-Type: application/json" -X POST http://localhost:8001/test -d "{"""Operation""":"""Deposit""", """Account_id""":"""1""", """Client_id""":"""1""", """Account_number""":"""1""", """Balance""":"""1""", """Deposit""":"""1"""}"
 curl -k -H "Content-Type: application/json" -X POST http://localhost:8001/test -d "{"""Operation""":"""GetBalance""", """Account_id""":"""1""", """Client_id""":"""1""", """Account_number""":"""1""", """Balance""":"""1"""}"
 
+DROP TABLE IF EXISTS Client CASCADE;
+DROP TABLE IF EXISTS Account CASCADE;
+DROP TABLE IF EXISTS Card CASCADE;

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
+import org.h2.jdbcx.JdbcConnectionPool;
 
 public class DataSource {
     private static HikariDataSource dataSource;
@@ -19,6 +20,8 @@ public class DataSource {
             config.setPassword(properties.getProperty("db.password"));
             config.setDriverClassName(properties.getProperty("db.driver.name"));
             dataSource = new HikariDataSource(config);
+
+//            JdbcConnectionPool cp = JdbcConnectionPool.create("jdbc:h2:~/test", "sa", "sa");
         } catch (IOException e) {
             e.printStackTrace();
         }

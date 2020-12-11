@@ -15,8 +15,7 @@ public class ServiceImpl implements Service<Account, Card, Float> {
 
     @Override
     public void createNewCard(Account account) {
-        Long num = cardDAO.findAll().size() + 1L;
-        cardDAO.save(new Card(num, account.getAccountId(), account.getClientId(), num.toString()));
+        cardDAO.save(new Card(1L, account.getAccountId(), account.getClientId(), "1"));
     }
 
     @Override
