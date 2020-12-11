@@ -1,0 +1,2 @@
+curl -k -H "Content-Type: application/json" -X POST http://localhost:8001/test -d "{"""Operation""":"""CreateNewCard""", """Account_id""":"""1""", """Client_id""":"""1""", """Account_number""":"""1""", """Balance""":"""1"""}"
+

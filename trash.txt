@@ -1,0 +1,3 @@
+curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -i GET http://localhost:8001/test
+curl -i -H "Accept: application/json" 'server:5050/a/c/getName{"param0":"pradeep"}'
+curl -X POST -H 'Content-Type:application/json' http://localhost:56183/api/token -d '{"username":"mario", "password":"secret"}'
